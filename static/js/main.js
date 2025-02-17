@@ -70,8 +70,8 @@ function addTask() {
   function test(data){
     console.log("@@$#@#",data);
   }
-  // get_renderer.regist_send("get_sqlite33", test);
-  // get_renderer.send_data("", "");
+  get_renderer.regist_receive("get_sqlite33", test);
+  get_renderer.send_data("get_todo", "");
 
 
 // // insert one row into the student table

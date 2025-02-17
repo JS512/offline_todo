@@ -23,12 +23,12 @@ contextBridge.exposeInMainWorld('versions', {
 })
 
 contextBridge.exposeInMainWorld('get_renderer', {
-  send_data: (channel, data) => ipcRenderer.send("get_sqlite3", ""),
-  regist_send: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args))
+  send_data: (channel, data) => ipcRenderer.send(channel, data),
+  regist_receive: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args))
       // we can also expose variables, not just functions
 })
 
-console.log(ipcRenderer)
+
 
 
 

@@ -1,5 +1,6 @@
 
 const { app, BrowserWindow, ipcMain } = require('electron')
+const common = require("./static/js/common")
 const path = require('node:path')
 
 const createWindow = () => {
@@ -45,31 +46,11 @@ app.on('window-all-closed', () => {
 //   })
 
 
-const sqlite3 = require('sqlite3').verbose();
-
-let db = new sqlite3.Database('./datas/chinook.sqlite3');
-
-// insert one row into the student table
-db.run(`CREATE TABLE IF NOT EXISTS Todo(
-    plan_date timestamp,
-    plan text,
-    create_test timestamp default CURRENT_TIMESTAMP,
-    start INTEGER,
-    hold INTEGER,
-    processing INTEGER,
-    done INTEGER
-  );`, function (err) {
-    if (err) {
-        return console.log(err.message);
-    }
-    // get the last insert id
-    console.log(`A row has been inserted with rowid ${this.lastID}`);
-});
-
-// // close the database connection
-db.close();
 
 
-ipcMain.on('get_sqlite3', (evt, payload) => {
-  evt.sender.send('get_sqlite33', {sqlite : "sqlite3"})
+
+ipcMain.on('get_todo', async (evt, payload) => {
+  common.get_todo_data().then(function(response){
+    evt.sender.send('get_sqlite33', {sqlite : response})
+  })  
 })
