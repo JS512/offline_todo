@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <link rel="stylesheet" type="text/css" href="./static/css/index.css"/>
+  
+  
+  <title>To-Do List</title>
+  
+</head>
+<body>
+  
+  <div class="todo-app">
+    <h1>📝 To-Do List</h1>
+    <div class="input-container">
+      <input id="taskInput" type="text" placeholder="새로운 할 일 입력">
+      <button onclick="addTask()">추가</button>
+    </div>
+    <ul id="taskList" class="task-list"></ul>
+  </div>
+
+
+  <script src="./static/js/main.js"></script>  
+</body>
+</html>

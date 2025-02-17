@@ -1,0 +1,40 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .todo-app {
+      max-width: 400px;
+      margin: 20px auto;
+    }
+    .input-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    input {
+      flex: 1;
+      padding: 8px;
+    }
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    .task-list {
+      list-style: none;
+      padding: 0;
+    }
+    .task-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background: #f0f0f0;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      cursor: grab;
+      user-select: none;
+    }
+    .dragging {
+      opacity: 0.5;
+    }
+  
