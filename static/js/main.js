@@ -1,4 +1,4 @@
-alert("main .js")
+
 
 function addTask() {
     const taskInput = document.getElementById("taskInput");
@@ -70,7 +70,7 @@ function addTask() {
   function test(data){
     console.log("@@$#@#",data);
   }
-  get_renderer.regist_receive("get_sqlite33", test);
+  get_renderer.regist_receive("get_sqlite_todo", test);
   get_renderer.send_data("get_todo", "");
 
 

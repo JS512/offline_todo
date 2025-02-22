@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "electron .",
+    "test": "electron . --env=development",
     "start": "electron-forge start",
     "package": "electron-forge package",
     "make": "electron-forge make"
@@ -20,9 +20,12 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.6.1",
     "@electron-forge/plugin-fuses": "^7.6.1",
     "@electron/fuses": "^1.8.0",
-    "electron": "^34.2.0"
+    "electron": "^34.2.0",
+    "electron-reload": "^2.0.0-alpha.1",
+    "electron-reloader": "^1.2.3"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "electron-squirrel-startup": "^1.0.1",
     "sqlite3": "^5.1.7"
   }

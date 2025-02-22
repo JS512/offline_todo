@@ -1,4 +1,4 @@
-alert("call preload")
+
 const { contextBridge, ipcRenderer } = require('electron')
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -27,7 +27,6 @@ contextBridge.exposeInMainWorld('get_renderer', {
   regist_receive: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(...args))
       // we can also expose variables, not just functions
 })
-
 
 
 

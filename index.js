@@ -1,7 +1,11 @@
 
+require("dotenv").config();
 const { app, BrowserWindow, ipcMain } = require('electron')
 const common = require("./static/js/common")
 const path = require('node:path')
+if (process.env.NODE_ENV === 'development') { require('electron-reload')(__dirname) }
+
+
 
 const createWindow = () => {
     const win = new BrowserWindow({
@@ -51,6 +55,13 @@ app.on('window-all-closed', () => {
 
 ipcMain.on('get_todo', async (evt, payload) => {
   common.get_todo_data().then(function(response){
-    evt.sender.send('get_sqlite33', {sqlite : response})
+    evt.sender.send('get_sqlite_todo', {sqlite : response})
   })  
 })
+
+
+if(process.argv.length >= 2) {
+  let filePath = process.argv[1];
+  console.log(process.argv.env)
+  //open, read, handle file
+}
