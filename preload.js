@@ -11,7 +11,16 @@ window.addEventListener('DOMContentLoaded', () => {
       replaceText(`${dependency}-version`, process.versions[dependency])
     }
   })
-
+  document.addEventListener('keydown', (event) => {
+    if(event.key=="F12"){ //F12
+        //메인프로세스로 toggle-debug 메시지 전송 (디버그 툴 토글시켜라)        
+        ipcRenderer.send('toggle-debug', 'an-argument')
+    }
+    else if(event.key=="F5"){ //F5
+        //메인프로세스로 refresh 메시지 전송 (페이지를 갱신시켜라)
+        ipcRenderer.send('refresh', 'an-argument')
+    }
+  })
 
   
     

@@ -19,7 +19,15 @@ const createWindow = () => {
 
     
     win.loadFile('index.html')
-    win.webContents.openDevTools(); //developer tools
+    //렌더러프로세스에서 보내는 메시지 처리
+    ipcMain.on('toggle-debug', (event, arg)=> {
+      //디버기 툴 토글(on/off)
+      win.webContents.toggleDevTools()
+    })
+    ipcMain.on('refresh', (event, arg)=> {
+      //페이지 갱신
+      win.reload();
+    })
 }
 
 
@@ -48,6 +56,9 @@ app.on('window-all-closed', () => {
 //       if (BrowserWindow.getAllWindows().length === 0) createWindow()
 //     })
 //   })
+
+
+
 
 
 
